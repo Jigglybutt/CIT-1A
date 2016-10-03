@@ -11,6 +11,7 @@
             left:0;
             top:0;
             background-color: #1f9;
+            transition:background-color 0.5s;
         }
         #button{
             width:200px;
@@ -28,7 +29,27 @@
         <div id='display'>
             <button id='button'>Click HERE!</button>
         </div>
-    
+        <script>
+            var myBut=document.getElementById("button");
+            var disp=document.getElementById("display");
+            var butWidth=100;
+            var butHeight=100;
+            var r=0;
+            var g=0;
+            var b=0;
+            myBut.onclick=function(){
+                r=Math.round(Math.random()*255);
+                g=Math.round(Math.random()*255);
+                b=Math.round(Math.random()*255);
+                
+                disp.style.backgroundColor="rgb("+r+","+g+","+b+")";
+                myBut.style.width=butWidth+"px";
+                myBut.style.height=butHeight+"px";
+                myBut.style.top="300px";
+                butWidth=butWidth+10;
+                butHeight=butHeight+5;
+            }
+        </script>
     </body>
 
 
