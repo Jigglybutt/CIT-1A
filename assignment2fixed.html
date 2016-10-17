@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #add {
+            position:absolute;
+            width: 100px;
+            height: 50px;
+        }
+        #clear {
+            position:absolute;
+            left:1200px;
+            width: 100px;
+            height: 50px;
+        }
+        .input {
+            position:relative;
+            left:120px;
+            display:block;
+        }
+        .imageThumb {
+            position: absolute;
+            top:17%;
+            left:3%;
+            width:100px;
+            height:100px;
+            background-size:contain;
+        }
+        #status {
+            position:fixed;
+            width:100vw;
+            height:20vh;
+            top:100vh;
+            background-color:cornflowerblue;
+            transition:bottom,0.5s;
+        }
+    </style>
+    <body>
+        <button id='add'>Add</button>
+        <button id='clear'>Clear</button>
+        <input type='text' class='input' placeholder='Type img url' id='url'/>
+        <input type='text' class='input' placeholder='Type in a message' id='msg1'/>
+        <input type='text' class='input' placeholder='Type in a message' id='msg2'/>
+    
+        <div id='content'></div>
+        <div id='status'></div>
+    
+    
+        <script>
+            var addBut=document.getElementById("add");
+            var clearBut=document.getElementById("clear");
+            var statusBar=document.getElementById("status");
+            addBut.onclick=function(){
+                var newBlock=document.createElement("div");
+                content.appendChild(newBlock);
+                newBlock.style.position="relative";
+                newBlock.style.backgroundColor="darkred";
+                newBlock.style.width="1000px";
+                newBlock.style.height="150px";
+                newBlock.style.left="200px";
+                newBlock.style.top="25px";
+                newBlock.style.bottom="25px";
+                statusBar.style.top="90vh";
+                var statmsg=document.createElement("div");
+                statusBar.appendChild(statmsg);
+                statmsg.style.display="inline";
+                statmsg.style.margin="0 10px 0 0";
+                statmsg.innerHTML="items created";
+                var kitty=document.createElement("img");
+                newBlock.appendChild(kitty);
+                var urlInput=document.getElementById("url");
+                kitty.src=urlInput.value;
+                kitty.className="imageThumb";
+                
+                var line1=document.createElement("h3");
+                var msgInput1=document.getElementById("msg1");
+                newBlock.appendChild(line1);
+                line1.style.position="absolute";
+                line1.style.backgroundColor="aqua";
+                line1.style.width="600px";
+                line1.style.height="40px";
+                line1.style.left="180px";
+                line1.innerHTML=msgInput1.value;
+                
+                var line2=document.createElement("div");
+                var msgInput2=document.getElementById("msg2");
+                newBlock.appendChild(line2);
+                line2.style.position="absolute";
+                line2.style.backgroundColor="lime";
+                line2.style.width="800px";
+                line2.style.height="40px";
+                line2.style.left="180px";
+                line2.style.top="80px";
+                line2.innerHTML=msgInput2.value;
+            }
+            
+            clearBut.onclick=function(){
+                content.innerHTML="";
+                statusBar.style.top="90vh";
+                var statmsg=document.createElement("div");
+                statusBar.appendChild(statmsg);
+                statmsg.style.display="inline";
+                statmsg.style.margin="0 10px 0 0";
+                statmsg.innerHTML="items deleted";
+            }
+            
+        </script>
+    </body>
+</html>
