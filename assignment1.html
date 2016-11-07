@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Backgrounds</title>
+        <title>Assignment1</title>
     </head>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    
     <style>
-        #box1 {
-            background-color: aqua;
-            width: 100vw;
-            height: 80vh;
-        }
-        #box2 {
-            width:100vw;
+        #b1{
+            position:absolute;
             height:80vh;
-            background-color: darkred;
-        
-        }
-        #box3 {
-            width: 100vw;
-            height: 100vh;
-            background-color: cornflowerblue;
-        }
-        #box4 {
-            width: 100vw;
-            height: 60vh;
-            background-color:coral;
-            background-image:url(http://placekitten.com/300/100 );
-            background-size:cover;
-        }
-        
-        
-        #banner{
-            width:100vw;
-            height:60vh;
+            background-image:url(http://placekitten.com/g/2000/800 );
+            background-size: cover;
+            background-repeat: no-repeat;     
         }
         #hello{
-            position:absolute;
-            top:20%;
-            left:45%;
+            
+            padding-top:50%;
+            padding-left:17.5%;
             font-size:50px;
-            color:rgba(200,100,50,0.5)
         }
         #profile {
-            position:absolute;
-            top:70%;
-            left:45%;
-            border-radius:400px;
+           
+            padding-top:20%;
+            padding-left:14%;
         }
-        #name {
-            position:absolute;
-            top:100%;
-            left:52%;
+        #name {  
+            padding-left:35%;
             font-size:50px;
         }
-
-        
-        .portfolio{
-            position:absolute;
-            width:15%;
-            height:auto;
-            top:145.6%;
+        .imgdiv{
+            background-color: red;
+            height:40vh;
+            z-index: 1;
         }
-        #work_img2{
-            margin:0 0 0 20.95%;
+        .title{
+            padding-left:80%;
+            padding-top:10%;
         }
-        #work_img3{
-            margin:0 0 0 40.95%;
-        }
-        #work_img4{
-            margin:0 0 0 60.95%;
-        }
-        #work_img5{
-            margin:0 0 0 80.95%;
-        }
-        
-        
-        .title {
-            position:absolute;
-            display:inline-block
-            width:45px;
-            margin:420px 0 0 170px;
-        }
-        #title2{
-            margin:420px 0 0 454px;
-        }
-        #title3{
-            margin:420px 0 0 726px;
-        }
-         #title4{
-            margin:420px 0 0 992px;
-        }
-         #title5{
-            margin:420px 0 0 1262px;
-        }
-
-
-        
-       .inbox3 {
-            display:inline-block;
-            vertical-align:top;
-            width:30%;
-            height:auto;
-            margin:10% 0 0 10%;
-
-        }
-        #title {
-            margin:0 0 0 0;
+        #biotitle {
+            padding-top:30%;
             font-size:40px;
         }
+        #bioimg{
+            padding-left:30%;
+            padding-top:30%;
+        }
+        .bio {
+            height:auto;
+        }
         #description {
-            word-wrap: break-word;
-            margin-top:-2px;
-            
+            word-wrap: break-word;            
+        }
+        #b5 {
+            height:80vh;
+            background-image:url(http://placekitten.com/g/2000/800);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #bye {
+            padding-top:40%;
+            padding-left:20%;
+            font-size:50px;         
+        }
+        @media only screen and (min-width:1200px) {
+            .imgdiv {
+                margin-left:2.6%;
+            }
+            .bio {
+                height:80vh;
+            }
+        }
+        @media only screen and (max-width:1200px) and (min-width:992px){
+            .imgdiv {
+                margin-top:15%;
+            }
+            #biotitle {
+                padding-top:0%;
+            }
+        }
+        @media only screen and (max-width:992px) and (min-width:768px){
+            .imgdiv {
+                margin-top:15%;
+            }
+            #biotitle {
+                padding-top:0%;
+            }
+        }
+        @media only screen and (max-width:768px){
+            .imgdiv {
+                margin-top:15%;
+            }
+            #biotitle {
+                padding-top:0%;
+            }
         }
         
-        #bye {
-            position: absolute;
-            margin:15% 0 0 45%;
-            font-size:50px;
-            color:rgba(200,100,50,0.5)           
-        }
-      
+
     </style>
     
     <body>
-        <div id='box1'>
-            <img id='banner' src=http://placekitten.com/g/300/200 />
-            <h3 id='hello'>Hello, world!</h3>
-            <img id='profile' src=http://placekitten.com/g/300/300 />
-            <h3 id='name'>Rong</h3>
-        </div>
-        <div id='box2'>
-            <img id='work_img1' class='portfolio' src=http://placekitten.com/g/300/200 />
-            <img id='work_img2' class='portfolio' src=http://placekitten.com/g/300/200 />
-            <img id='work_img3' class='portfolio' src=http://placekitten.com/g/300/200 />
-            <img id='work_img4' class='portfolio' src=http://placekitten.com/g/300/200 />
-            <img id='work_img5' class='portfolio' src=http://placekitten.com/g/300/200 />
-            <h3 id='title1' class='title'>Title</h3>
-            <h3 id='title2' class='title'>Title</h3>
-            <h3 id='title3' class='title'>Title</h3>
-            <h3 id='title4' class='title'>Title</h3>
-            <h3 id='title5' class='title'>Title</h3>
-        </div>
-        <div id='box3'>
-            <img id='bioimg' class='inbox3' src=http://placekitten.com/g/300/200 />
-            <div id='bio' class='inbox3'>
-                <h3 id='title'>Bio</h3>
-                <h3 id='description'>fewaivjfoawnioejvisdv ivncoia idoawn\v weijvpa foaweifip jweopefj iewajfp; waejfvi woaihwiojfdasfdsaffdasf dasfdasfds fdasffda dsafdasfdsajfnsdaflasdjfldsnajkfjds jfksdl;ajf lsdj flsdj;a fldk;sjaf sdja ;fjds;lkjf;ioea wfj a;wojf;odijs ;fijds;aojf ;asdiojf;j ds;oajfoidas;j f;ioasdj ;fdisj afio;d asofj i;sdoaj fo;iasdjfoi;dsajfdsafdasfadsfasdfdasfadsfdasfasdfdfdsa fo;siadjfefdsafdsafsdafsadfsdafdsafsadfsdf odsi;ijf;osdajfio;dsjai;ofjfd vonoisjavoasonvicjzovnnozcnvlmxzvlnavodj cmznvlcxnv kwanvklcnvmzcnvlczlczndv czmnvvnasnoiv;nlxcznv owae;jvdsfdsafsdafdsf dsfsadfsdafvclvnmcnzlc;vn;jd;ckxvnlmcnl;jlcz;knvl;cklvlzxjvkzcf
-                </h3>
+            <div id='b1' class='col-lg-12 col-md-12 col-sm-12 col-xs-12'></div>
+            <div id='b1b1' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'></div>
+            <div id='b2b1' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                <h3 id='hello'>Hello, world!</h3>
+                <img id='profile' src=http://placekitten.com/g/300/300 />
+                <h3 id='name'>Rong</h3>
             </div>
-        </div>
-        <div id='box4'>
-            <h3 id='bye'>Bye, World!</h3>
-        </div>
-        <script>
-            var img1But=document.getElementById("work_img1");
-            var img2But=document.getElementById("work_img2");
-            var img3But=document.getElementById("work_img3");
-            var img4But=document.getElementById("work_img4");
-            var img5But=document.getElementById("work_img5");
-            img1But.onclick=function(){
-                var randwidth=Math.floor((Math.random() * 500) + 100); 
-                var randheight=Math.floor((Math.random() * 500) + 100); 
-                img1But.style.width=randwidth+"px";
-                img1But.style.height=height+"px";
-            }
-            img2But.onclick=function(){
-                var randtopmar=Math.floor((Math.random() * 110) + 100); 
-                var randleftmar=Math.floor((Math.random() * 10) + 1); 
-                img2But.style.top=randtopmar+"%";
-                img2But.style.left=randleftmar+"%";
-            }
-            img3But.onclick=function(){
-                var randwidth=Math.floor((Math.random() * 500) + 100); 
-                var randheight=Math.floor((Math.random() * 500) + 100);
-                var randtopmar=Math.floor((Math.random() * 110) + 100); 
-                var randleftmar=Math.floor((Math.random() * 10) + 1); 
-                img3But.style.top=randtopmar+"%";
-                img3But.style.left=randleftmar+"%";
-                img3But.style.width=randwidth+"px";
-                img3But.style.height=height+"px";
-            }
-            img4But.onclick=function(){
-                var randnum=(Math.floor((Math.random() * 10) + 0))/10; 
-                img4But.style.opacity=randnum;
-            }
-            img5But.onclick=function(){
-                img5But.src="http://placekitten.com/g/100/100/";
-            }
-        
-        </script>
-   
+            <div id='b3b1' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'></div>
+            <div id='b2' class='col-lg-12 col-md-12 col-sm-12 col-xs-12'></div>
+            <div id='b1b3' class='col-lg-2 col-md-4 col-sm-6 col-xs-8 imgdiv'>
+                <h3 class='title'>Title</h3>
+                <img id='img1' src='http://placekitten.com/g/200/200' />
+            </div>
+            <div id='b2b3' class='col-lg-2 col-md-4 col-sm-6 col-xs-8 imgdiv'>
+                <h3 class='title'>Title</h3>
+                <img id='img2' src='http://placekitten.com/g/200/200' />
+            </div>
+            <div id='b3b3' class='col-lg-2 col-md-4 col-sm-6 col-xs-8 imgdiv'>
+                <h3 class='title'>Title</h3>
+                <img id='img3' src='http://placekitten.com/g/200/200' />
+            </div>
+            <div id='b4b3' class='col-lg-2 col-md-4 col-sm-6 col-xs-8 imgdiv'>
+                <h3 class='title'>Title</h3>
+                <img id='img4' src='http://placekitten.com/g/200/200' />    
+            </div>
+            <div id='b5b3' class='col-lg-2 col-md-4 col-sm-6 col-xs-8 imgdiv'>
+                <h3 class='title'>Title</h3>
+                <img id='img5'src='http://placekitten.com/g/200/200' />    
+            </div>
+            <div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 bio'>
+                <img id='bioimg' src=http://placekitten.com/g/300/200 />
+            </div>
+            <div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 bio'>
+                <h3 id='biotitle'>Bio</h3>
+                <h3 id='description'>blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</h3>
+            </div>
+            <div id='b5' class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>  
+                <div id='b1b5' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'></div>
+                <div id='b2b5' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                    <h3 id='bye'>Bye, World!</h3>
+                </div>
+                <div id='b3b5' class='col-lg-4 col-md-4 col-sm-12 col-xs-12'></div>
+            </div>
     </body>
-
-
-
-
+    <script>
+        for(var i=0;i<12;i++){
+            var block=document.createElement("div");
+            var box2=document.getElementById("b2");
+            box2.appendChild(block);
+            block.style.height="40vh";
+            block.className="col-lg-1 col-md-1 col-sm-1 col-xs-1";  
+        }
+        
+        var image1=document.getElementById("img1");
+        var image2=document.getElementById("img2");
+        var image3=document.getElementById("img3");
+        var image4=document.getElementById("img4");
+        var image5=document.getElementById("img5");
+        image1.onclick=function(){
+            var randwidth=Math.floor((Math.random() * 500) + 100); 
+            var randheight=Math.floor((Math.random() * 500) + 100); 
+            image1.style.width=randwidth+"px";
+            image1.style.height=height+"px";
+        }
+        image2.onclick=function(){
+            var randtopmar=Math.floor((Math.random() * 50) + 1); 
+            var randleftmar=Math.floor((Math.random() * 10) + 1); 
+            image2.style.paddingTop=randtopmar+"px";
+            image2.style.paddingLeft=randleftmar+"px";
+        }
+        image3.onclick=function(){
+            var randwidth=Math.floor((Math.random() * 500) + 100); 
+            var randheight=Math.floor((Math.random() * 500) + 100);
+            var randtopmar=Math.floor((Math.random() * 50) + 1); 
+            var randleftmar=Math.floor((Math.random() * 10) + 1); 
+            image3.style.paddingTop=randtopmar+"%";
+            image3.style.paddingLeft=randleftmar+"%";
+            image3.style.width=randwidth+"px";
+            image3.style.height=height+"px";
+        }
+        image4.onclick=function(){
+            var randnum=(Math.floor((Math.random() * 10) + 0))/10; 
+            image4.style.opacity=randnum;
+        }
+        image5.onclick=function(){
+            image5.src="http://placekitten.com/g/100/100/";
+        }
+        
+    </script>
 </html>
