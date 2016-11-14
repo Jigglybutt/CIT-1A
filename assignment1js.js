@@ -1,10 +1,10 @@
     $(document).ready(function(){
-            var b1=document.getElementById("box1");
+            var body=document.getElementById("main");
             $.ajax({
                 url:"assignment1body.html",
                 dataType:"html",
                 success:function(resp){
-                    b1.innerHTML=resp;
+                    body.innerHTML=resp;
                     
                     var image1=document.getElementById("img1");
                     var image2=document.getElementById("img2");
