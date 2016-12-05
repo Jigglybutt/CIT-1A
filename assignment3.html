@@ -70,7 +70,7 @@
             <div id='movie_status'></div>
             <input type='text' id='comment' placeholder='Comment'/>
             <div id='comment_status'></div>
-            <button id='submit'>Submit</button>
+            <button id='submit' disabled>Submit</button>
         </div>
         <div id='bot'></div>
         
@@ -92,119 +92,147 @@
             var ucommentCheck=document.getElementById("comment_status");
             var ucomment_regEx=/^[a-zA-Z0-9 ,!?\.]{1,100}$/;
             
-            var allValid=false;
+            
             var subBut=document.getElementById("submit");
             var botDiv=document.getElementById("bot");
             
+  
             uname.onkeyup=function(){
                 if(uname_regEx.test(uname.value)==true){
                     uname.style.color="green";
                     unameCheck.innerHTML="Username is valid.";
-                    allValid=true;
+
                 }   
                 else{
                     uname.style.color="red";
                     unameCheck.innerHTML="Must be 8-15 alphabets and numbers.";
-                    allValid=false;
+                }
+                if(uname_regEx.test(uname.value)==true && imglink_regEx.test(imglink.value)==true && movname_regEx.test(movname.value)==true && ucomment_regEx.test(ucomment.value)==true){
+                    subBut.disabled=false;
+                }
+                else{
+                    subBut.disabled=true;
                 }
             }
+            
+
             imglink.onkeyup=function(){
                 if(imglink_regEx.test(imglink.value)==true){
                     imglink.style.color="green";
                     imglinkCheck.innerHTML="Link is valid.";
-                    allValid=true;
+
                 }   
                 else{
                     imglink.style.color="red";
                     imglinkCheck.innerHTML="Must end with .jpg/png/gif.";
-                    allValid=false;
+
+                }
+                if(uname_regEx.test(uname.value)==true && imglink_regEx.test(imglink.value)==true && movname_regEx.test(movname.value)==true && ucomment_regEx.test(ucomment.value)==true){
+                    subBut.disabled=false;
+                }
+                else{
+                    subBut.disabled=true;
                 }
             }
+            
             movname.onkeyup=function(){
                 if(movname_regEx.test(movname.value)==true){
                     movname.style.color="green";
                     movnameCheck.innerHTML="Movie name is valid.";
-                    allValid=true;
+
                 }   
                 else{
                     movname.style.color="red";
                     movnameCheck.innerHTML="Must be alphabets and space.";
-                    allValid=false;
+                }
+                if(uname_regEx.test(uname.value)==true && imglink_regEx.test(imglink.value)==true && movname_regEx.test(movname.value)==true &&   ucomment_regEx.test(ucomment.value)==true){
+                    subBut.disabled=false;
+                }
+                else{
+                    subBut.disabled=true;
                 }
             }
+            
             ucomment.onkeyup=function(){
                 if(ucomment_regEx.test(ucomment.value)==true){
                     ucomment.style.color="green";
-                    allValid=true;
+
                 }   
                 else{
                     ucomment.style.color="red";
                     ucommentCheck.innerHTML="Must be alphabets and space, .,?!.";
-                    allValid=false;
+                }
+                if(uname_regEx.test(uname.value)==true && imglink_regEx.test(imglink.value)==true && movname_regEx.test(movname.value)==true && ucomment_regEx.test(ucomment.value)==true){
+                    subBut.disabled=false;
+                }
+                else{
+                    subBut.disabled=true;
                 }
             }
             
+
             subBut.onclick=function(){
-                if(allValid==true){
-                    var postDiv=document.createElement("div");
-                    botDiv.appendChild(postDiv);
-                    postDiv.style.width="90vw";
-                    postDiv.style.height="35vh";
-                    postDiv.style.marginLeft="5vw";
-                    postDiv.style.marginTop="10vh";
-                    postDiv.style.background="yellow";
+                botDiv.innerHTML="";
+                
+                var postDiv=document.createElement("div");
+                botDiv.appendChild(postDiv);
+                postDiv.style.width="90vw";
+                postDiv.style.height="35vh";
+                postDiv.style.marginLeft="5vw";
+                postDiv.style.marginTop="10vh";
+                postDiv.style.background="yellow";
+                                  
+                var image=document.createElement("img");
+                postDiv.appendChild(image);
+                image.style.width="7%";
+                image.style.height="30%";
+                image.style.position="absolute";
+                image.src=imglink.value;
+                image.style.marginTop="-2%";
+                image.style.marginLeft="-2%";
                     
-                    var image=document.createElement("img");
-                    postDiv.appendChild(image);
-                    image.style.width="7%";
-                    image.style.height="30%";
-                    image.style.position="absolute";
-                    image.src=imglink.value;
-                    image.style.marginTop="-2%";
-                    image.style.marginLeft="-2%";
-                    
-                    var poster=document.createElement("img");
-                    postDiv.appendChild(poster);
-                    postDiv.style.position="absolute";
-                    poster.style.width="10%";
-                    poster.style.height="40%";
-                    poster.style.marginTop="-5%";
-                    poster.style.marginLeft="90%";
-                    $(document).ready(function(){
-                        $.ajax({
-                            url:"http://www.omdbapi.com/?t="+movname.value,
-                            dataType:"jsonp",
-                            success:function(resp){
-                                console.log(resp);
-                                poster.src=resp.Poster;
-                            }
+                var poster=document.createElement("img");
+                postDiv.appendChild(poster);
+                postDiv.style.position="absolute";
+                poster.style.width="10%";
+                poster.style.height="40%";
+                poster.style.marginTop="-5%";
+                poster.style.marginLeft="90%";
+                $(document).ready(function(){
+                    $.ajax({
+                        url:"http://www.omdbapi.com/?t="+movname.value,
+                        dataType:"jsonp",
+                        success:function(resp){
+                            console.log(resp);
+                            poster.src=resp.Poster;
+                        }
                                
-                        }) 
+                    }) 
                         
-                    });
+                });
 
                     
-                    var commentDiv=document.createElement("div");
-                    postDiv.appendChild(commentDiv);
-                    commentDiv.style.width="99%";
-                    commentDiv.style.height="50%";
-                    commentDiv.style.marginLeft="0.5%";
-                    commentDiv.style.marginTop="2%";
-                    commentDiv.innerHTML=ucomment.value;
-                    commentDiv.style.wordWrap="break-word";
+                var commentDiv=document.createElement("div");
+                postDiv.appendChild(commentDiv);
+                commentDiv.style.width="99%";
+                commentDiv.style.height="50%";
+                commentDiv.style.marginLeft="0.5%";
+                commentDiv.style.marginTop="2%";
+                commentDiv.innerHTML=ucomment.value;
+                commentDiv.style.wordWrap="break-word";
                 
-                    var unameDiv=document.createElement("div");
-                    postDiv.appendChild(unameDiv);
-                    unameDiv.style.width="20%";
-                    unameDiv.style.height="30%";
-                    unameDiv.style.marginLeft="80%";
-                    unameDiv.style.marginTop="2%";
-                    unameDiv.style.fontSize="30px";
-                    unameDiv.style.textAlign="center";
-                    unameDiv.style.lineHeight="65px";
-                    unameDiv.innerHTML=uname.value;
-                }
+                var unameDiv=document.createElement("div");
+                postDiv.appendChild(unameDiv);
+                unameDiv.style.width="20%";
+                unameDiv.style.height="30%";
+                unameDiv.style.marginLeft="80%";
+                unameDiv.style.marginTop="2%";
+                unameDiv.style.fontSize="30px";
+                unameDiv.style.textAlign="center";
+                unameDiv.style.lineHeight="65px";
+                unameDiv.innerHTML=uname.value;
             }
+            
         </script>
     </body>
     
