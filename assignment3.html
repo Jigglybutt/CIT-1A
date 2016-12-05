@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Assignment 3</title>
+    </head>
+    
+    <style>
+        #username {
+            display: block;
+            width:42vw;
+            height:5vh;
+            margin-left: 5vw;
+            margin-top:3vh;
+        }
+        #uname_status {
+            width:42vw;
+            height:3vh;
+            margin-left: 5vw;
+        }
+        #link {
+            width:42vw;
+            height:5vh;
+            margin-left: 5vw;
+            margin-top:3vh;
+        }
+        #movie {
+            width:42vw;
+            height:5vh;
+            margin-left: 5vw;
+            margin-top:3vh;
+        }
+        #link_status {
+            display:inline-block;
+            width:42vw;
+            height:3vh;
+            margin-left: 5vw;
+        }
+        #movie_status {
+            display:inline-block;
+            width:42vw;
+            height:3vh;
+            margin-left: 5.3vw;
+        }
+        #comment {
+            width:89.6vw;
+            height:5vh;
+            margin-left:5vw;
+            margin-top:3vh;
+        }
+        #comment_status {
+            width:89.6vw;
+            height:3vh;
+            margin-left: 5vw;
+        }
+        #submit {
+            height:5vh;
+            width: 25vw;
+            margin-left: 5vw;
+            margin-top:3vh;
+        }
+    </style>
+    
+    <body>
+        <div id='top'>
+            <input type='text' id='username' placeholder='Username'/>
+            <div id='uname_status'></div>
+            <input type='text' id='link' placeholder='Image Link'/>
+            <input type='text' id='movie' placeholder='Movie'/>
+            <div id='link_status'></div>
+            <div id='movie_status'></div>
+            <input type='text' id='comment' placeholder='Comment'/>
+            <div id='comment_status'></div>
+            <button id='submit'>Submit</button>
+        </div>
+        <div id='bot'></div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            var uname=document.getElementById("username");
+            var unameCheck=document.getElementById("uname_status");
+            var uname_regEx=/^[a-zA-Z0-9]{8,15}$/;
+            
+            var imglink=document.getElementById("link");
+            var imglinkCheck=document.getElementById("link_status");
+            var imglink_regEx=/.(jpg|png|gif)$/;
+            
+            var movname=document.getElementById("movie");
+            var movnameCheck=document.getElementById("movie_status");
+            var movname_regEx=/^[a-zA-Z ]{1,30}$/;
+            
+            var ucomment=document.getElementById("comment");
+            var ucommentCheck=document.getElementById("comment_status");
+            var ucomment_regEx=/^[a-zA-Z0-9 ,!?\.]{1,100}$/;
+            
+            var allValid=false;
+            var subBut=document.getElementById("submit");
+            var botDiv=document.getElementById("bot");
+            
+            uname.onkeyup=function(){
+                if(uname_regEx.test(uname.value)==true){
+                    uname.style.color="green";
+                    unameCheck.innerHTML="Username is valid.";
+                    allValid=true;
+                }   
+                else{
+                    uname.style.color="red";
+                    unameCheck.innerHTML="Must be 8-15 alphabets and numbers.";
+                    allValid=false;
+                }
+            }
+            imglink.onkeyup=function(){
+                if(imglink_regEx.test(imglink.value)==true){
+                    imglink.style.color="green";
+                    imglinkCheck.innerHTML="Link is valid.";
+                    allValid=true;
+                }   
+                else{
+                    imglink.style.color="red";
+                    imglinkCheck.innerHTML="Must end with .jpg/png/gif.";
+                    allValid=false;
+                }
+            }
+            movname.onkeyup=function(){
+                if(movname_regEx.test(movname.value)==true){
+                    movname.style.color="green";
+                    movnameCheck.innerHTML="Movie name is valid.";
+                    allValid=true;
+                }   
+                else{
+                    movname.style.color="red";
+                    movnameCheck.innerHTML="Must be alphabets and space.";
+                    allValid=false;
+                }
+            }
+            ucomment.onkeyup=function(){
+                if(ucomment_regEx.test(ucomment.value)==true){
+                    ucomment.style.color="green";
+                    allValid=true;
+                }   
+                else{
+                    ucomment.style.color="red";
+                    ucommentCheck.innerHTML="Must be alphabets and space, .,?!.";
+                    allValid=false;
+                }
+            }
+            
+            subBut.onclick=function(){
+                if(allValid==true){
+                    var postDiv=document.createElement("div");
+                    botDiv.appendChild(postDiv);
+                    postDiv.style.width="90vw";
+                    postDiv.style.height="35vh";
+                    postDiv.style.marginLeft="5vw";
+                    postDiv.style.marginTop="10vh";
+                    postDiv.style.background="yellow";
+                    
+                    var image=document.createElement("img");
+                    postDiv.appendChild(image);
+                    image.style.width="7%";
+                    image.style.height="30%";
+                    image.style.position="absolute";
+                    image.src=imglink.value;
+                    image.style.marginTop="-2%";
+                    image.style.marginLeft="-2%";
+                    
+                    var poster=document.createElement("img");
+                    postDiv.appendChild(poster);
+                    postDiv.style.position="absolute";
+                    poster.style.width="10%";
+                    poster.style.height="40%";
+                    poster.style.marginTop="-5%";
+                    poster.style.marginLeft="90%";
+                    $(document).ready(function(){
+                        $.ajax({
+                            url:"http://www.omdbapi.com/?t="+movname.value,
+                            dataType:"jsonp",
+                            success:function(resp){
+                                console.log(resp);
+                                poster.src=resp.Poster;
+                            }
+                               
+                        }) 
+                        
+                    });
+
+                    
+                    var commentDiv=document.createElement("div");
+                    postDiv.appendChild(commentDiv);
+                    commentDiv.style.width="99%";
+                    commentDiv.style.height="50%";
+                    commentDiv.style.marginLeft="0.5%";
+                    commentDiv.style.marginTop="2%";
+                    commentDiv.innerHTML=ucomment.value;
+                    commentDiv.style.wordWrap="break-word";
+                
+                    var unameDiv=document.createElement("div");
+                    postDiv.appendChild(unameDiv);
+                    unameDiv.style.width="20%";
+                    unameDiv.style.height="30%";
+                    unameDiv.style.marginLeft="80%";
+                    unameDiv.style.marginTop="2%";
+                    unameDiv.style.fontSize="30px";
+                    unameDiv.style.textAlign="center";
+                    unameDiv.style.lineHeight="65px";
+                    unameDiv.innerHTML=uname.value;
+                }
+            }
+        </script>
+    </body>
+    
+</html>
