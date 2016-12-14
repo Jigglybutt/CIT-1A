@@ -1,0 +1,48 @@
+        #naviBar{
+            width:70vw;
+            height:25vh;
+            background-color:bisque;
+            margin-bottom: 3vh;
+            margin-left: 15vw;
+            overflow:hidden;
+            text-align: center;
+            line-height:140px;
+        }
+        #logo{
+            position:absolute;
+            width: 15vw;
+            height: 25vh;
+            background-color:darkseagreen;
+            margin-left: 3%;
+            font-size: 30px;
+            line-height:170px;
+            text-align: center;
+        }
+        #comName{
+            position:absolute;
+            width:20vw;
+            height:10vh;
+            background-color: cadetblue;
+            margin-left: 20vw;
+            margin-top: 3vh;
+            font-size: 30px;
+            line-height:70px;
+        }
+        #menuBar{
+            position:absolute;
+            width:30vw;
+            height:5vh;
+            background-color: burlywood;
+            margin-left: 20vw;
+            margin-top: 17vh;
+            line-height:35px;
+        }
+        #account{
+            position:absolute;
+            width:20vw;
+            height:5vh;
+            background-color:darkkhaki;
+            margin-left: 50vw;
+            margin-top: 9vh;
+            line-height:35px;
+        }

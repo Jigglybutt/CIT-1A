@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Coupons on the go!!!</title>
+    </head>
+    
+    <link href="naviBar.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='naviBar.js'></script>
+    <style>
+        #contentDiv{
+            width:70vw;
+            height:70vh;
+            margin-top: 3vh;
+            margin-left: 15vw;
+            margin-bottom:3vh;
+        }
+        #faqDiv{
+            display:inline-block;
+            width:15%;
+            height:10%;
+            background-color: aqua;
+            text-align: center;
+            line-height: 50px;
+            text-decoration:underline;
+            font-weight:bold;
+        }
+        #emailDiv{
+            vertical-align: top;
+            display:inline-block;
+            width:15%;
+            height:10%;
+            background-color:cornflowerblue;
+            text-align: center;
+            margin-left: -0.5%;
+            line-height: 50px;
+        }
+        #phoneDiv{
+            vertical-align: top;
+            display:inline-block;
+            width:15%;
+            height:10%;
+            background-color:darkgray;
+            text-align: center;
+            margin-left: -0.5%;
+            line-height: 50px;
+        }
+        #mailDiv{
+            vertical-align: top;
+            display:inline-block;
+            width:15%;
+            height:10%;
+            background-color:darksalmon;
+            text-align: center;
+            margin-left: -0.5%;
+            line-height: 50px;
+        }
+        #displayDiv {
+            display: block;
+            width:100%;
+            height:100%;
+            background-color: aqua;
+            text-align: center;
+            font-size: 60px;
+            line-height: 500px;
+        }
+    
+        
+    
+    </style>
+    <body>
+        <div id='naviDiv'></div>
+        <div id='contentDiv'>
+            <div id='faqDiv'>F.A.Q.</div>
+            <div id='emailDiv'>By Email</div>
+            <div id='phoneDiv'>By Phone</div>
+            <div id='mailDiv'>Address</div>
+            <div id='displayDiv'>Display F.A.Q.</div>
+        </div>
+        
+    </body>
+    <script>
+        var faq=document.getElementById("faqDiv");
+        var email=document.getElementById("emailDiv");
+        var phone=document.getElementById("phoneDiv");
+        var mail=document.getElementById("mailDiv");
+        var display=document.getElementById("displayDiv");
+        faq.onclick=function(){
+            display.innerHTML="Display F.A.Q.";
+            display.style.backgroundColor="aqua";
+            faq.style.textDecoration="underline";
+            faq.style.fontWeight="bold";
+            email.style.textDecoration="none";
+            email.style.fontWeight="normal";
+            phone.style.textDecoration="none";
+            phone.style.fontWeight="normal";
+            mail.style.textDecoration="none";
+            mail.style.fontWeight="normal";
+        }
+        email.onclick=function(){
+            display.innerHTML="Display email info";
+            display.style.backgroundColor="cornflowerblue";
+            email.style.textDecoration="underline";
+            email.style.fontWeight="bold";
+            phone.style.textDecoration="none";
+            phone.style.fontWeight="normal";
+            faq.style.textDecoration="none";
+            faq.style.fontWeight="normal";
+            mail.style.textDecoration="none";
+            mail.style.fontWeight="normal";
+            
+        }
+        phone.onclick=function(){
+            display.innerHTML="Display phone info";
+            display.style.backgroundColor="darkgray";
+            phone.style.textDecoration="underline";
+            phone.style.fontWeight="bold";
+            email.style.textDecoration="none";
+            email.style.fontWeight="normal";
+            faq.style.textDecoration="none";
+            faq.style.fontWeight="normal";
+            mail.style.textDecoration="none";
+            mail.style.fontWeight="normal";
+        }
+        mail.onclick=function(){
+            display.innerHTML="Display mail info";
+            display.style.backgroundColor="darksalmon";
+            mail.style.textDecoration="underline";
+            mail.style.fontWeight="bold";
+            email.style.textDecoration="none";
+            email.style.fontWeight="normal";
+            phone.style.textDecoration="none";
+            phone.style.fontWeight="normal";
+            faq.style.textDecoration="none";
+            faq.style.fontWeight="normal";
+        }
+    </script>
+    
+</html>
