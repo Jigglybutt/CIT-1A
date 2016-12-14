@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Coupons on the go!!!</title>
+    </head>
+    
+    <link href="naviBar.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='naviBar.js'></script>
+    
+    <style>
+        #infograph{
+            background-color: bisque;
+            width: 70vw;
+            height: 50vh;
+            margin-left: 15vw;
+        }
+        #imgDiv{
+            display: inline-block;
+            font-size: 30px;
+            width:40%;
+            height:80%;
+            background-color:aquamarine;
+            text-align: center;
+            line-height:270px;
+            margin-left: 7.5%;
+            margin-top: 3.5%;
+        }
+        #insDiv{
+            vertical-align: top;
+            display: inline-block;
+            width:40%;
+            height:80%;
+            margin-left: 4%;
+            margin-top: 3.5%;
+        }
+        .title{
+            margin-top: -0.5%;
+        }
+        .descDiv{
+            width:100%;
+            height:auto;
+            word-wrap: break-word;
+        }
+        #nextBut{
+            position:absolute;
+            margin-left: 60%;
+            margin-top: 20%;
+        }
+        #featureDiv{
+            width: 70vw;
+            height: 100vh;
+            margin-left: 15vw;
+            margin-top: 3vh;
+            overflow:hidden;
+        }
+        .rows{
+            width: 80%;
+            height: 30%;
+            margin-left: 10%;
+            margin-top: 2%;
+        }
+        #row1{
+            margin-top: 0;
+        }
+        .pictures{
+            display: inline-block;
+            width:40%;
+            height:100%;
+            background-color: darkorange;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .texts{
+            display: inline-block;
+            vertical-align: top;
+            width:59%;
+            height:100%;
+            background-color: coral;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+        } 
+    </style>
+    
+    <body>
+        <div id='naviDiv'></div>
+        <div id='infograph'>
+           <button id='nextBut'>Next</button>
+           <div id='imgDiv'>Image</div>
+           <div id='insDiv'>
+               <h2 class='title'>What is Coupons on the go?</h2>
+               <div class='descDiv'>Our service, Coupons on the Go!, is dedicated to letting you know the best deals available on a daily basis. Simply sign up for an account, fill out a preference form so we know what your interests are, download and log in to our mobile app to get notified of the lastest hot deals. Purchase highly stylish, customizable our wearable so you can send and store coupons in it for convenient access at the check-out. 
+               </div>
+           </div>
+        </div>
+        <div id='featureDiv'>
+            <div id='row1' class='rows'>
+                <div class='pictures'>Feture picture or video #1</div>
+                <div class='texts'>Feature description #1</div>
+            </div>
+            <div class='rows'>
+                <div class='pictures'>Feture picture or video #2</div>
+                <div class='texts'>Feature description #2</div>
+            </div>
+            <div class='rows'>
+                <div class='pictures'>Feture picture or video #3</div>
+                <div class='texts'>Feature description #3</div>
+            </div>
+        </div>
+       <script>
+           var next=document.getElementById("nextBut");
+           var instruction=document.getElementById("insDiv");
+           var image=document.getElementById("imgDiv");
+           var count=0;
+           var answer1="";
+           var answer2="";
+           next.onclick=function(){
+               if(count==0){
+                   instruction.innerHTML="";
+                   var step=document.createElement("h2");
+                   step.className="title";
+                   step.innerHTML="1. Sign up for an account.";
+                   instruction.append(step);
+                   image.style.backgroundColor="orange";
+                   count++;
+               }
+               else if(count==1){
+                   var step=document.createElement("h2");
+                   step.className="title";
+                   step.innerHTML="2. Fill out a preference form.";
+                   instruction.append(step);
+                   image.style.backgroundColor="yellow";
+                   count++;
+               }
+               else if(count==2){
+                   var step=document.createElement("h2");
+                   step.className="title";
+                   step.innerHTML="3. Log in on your device.";
+                   instruction.append(step);
+                   image.style.backgroundColor="pink";
+                   count++;
+               }
+               else if(count==3){
+                   var step=document.createElement("h2");
+                   step.className="title";
+                   step.innerHTML="4. Get notified for latest deals based on preference.";
+                   instruction.appendChild(step);
+                   image.style.backgroundColor="green";
+                   count++;
+               }
+               else if(count==4){
+                   var step=document.createElement("h2");
+                   step.className="title";
+                   step.innerHTML="5. Send coupon to wearable for easy access.";
+                   instruction.append(step);
+                   image.style.backgroundColor="puple";
+                   count++;
+               }
+               else if(count==5){
+                   instruction.innerHTML="";
+                   var title=document.createElement("h2");
+                   title.className="title";
+                   title.innerHTML="Sample preference form";
+                   instruction.append(title);
+                   image.style.backgroundColor="orange";
+                   var q1=document.createElement("div");
+                   q1.innerHTML="Question 1: What is your favourite store?";
+                   instruction.appendChild(q1);
+                   var a1=document.createElement("input");
+                   a1.setAttribute("type","text");
+                   a1.style.width="60%";
+                   instruction.appendChild(a1);
+                   answer1=a1;
+                   var q2=document.createElement("div");
+                   q2.innerHTML="Question 2: What do you usually spend on?";
+                   q2.style.marginTop="2%";
+                   instruction.appendChild(q2);
+                   var a2=document.createElement("input");
+                   a2.setAttribute("type","text");
+                   a2.style.width="60%";
+                   instruction.appendChild(a2);
+                   answer2=a2;
+                   next.innerHTML="Confirm";
+                   count++;
+               }
+               else if(count==6){
+                   next.disabled=true;
+                   var step=document.createElement('div');
+                   step.innerHTML="Our system will deliver your daily dose of coupons based on your preference:";
+                   step.style.marginTop="2%";
+                   instruction.appendChild(step);
+                   var p1=document.createElement('div');
+                   p1.innerHTML="Favourite store: "+answer1.value;
+                   p1.style.marginTop="2%";
+                   instruction.appendChild(p1);
+                   var p2=document.createElement('div');
+                   p2.innerHTML="Favourite product: "+answer2.value;
+                   p2.style.marginTop="2%";
+                   instruction.appendChild(p2);
+                   image.innerHTML="";
+                    var prompt=document.createElement('Div');
+                   image.appendChild(prompt);
+                   prompt.style.lineHeight="20px";
+                   prompt.style.fontSize="20px";
+                   prompt.innerHTML="This is your phone screen.<br>Click to see a sample coupon---->";
+                   prompt.style.position="absolute";
+                   prompt.style.marginLeft="-20%";
+                   var c1=document.createElement('Div');
+                   image.appendChild(c1);
+                   c1.style.width="100%";
+                   c1.style.height="20%";
+                   c1.innerHTML="Sample coupon #1";
+                   c1.style.backgroundColor="white";
+                   c1.style.lineHeight="55px";
+                   c1.style.borderStyle="solid";
+                   c1.style.borderWidth="1px";
+                   var c2=document.createElement('Div');
+                   image.appendChild(c2);
+                   c2.style.width="100%";
+                   c2.style.height="20%";
+                   c2.innerHTML="Sample coupon #2";
+                   c2.style.backgroundColor="white";
+                   c2.style.lineHeight="55px";
+                   c2.style.borderStyle="solid";
+                   c2.style.borderWidth="1px";
+                   var c3=document.createElement('Div');
+                   image.appendChild(c3);
+                   c3.style.width="100%";
+                   c3.style.height="20%";
+                   c3.innerHTML="Sample coupon #3";
+                   c3.style.backgroundColor="white";
+                   c3.style.lineHeight="55px";
+                   c3.style.borderStyle="solid";
+                   c3.style.borderWidth="1px";
+                   var c4=document.createElement('Div');
+                   image.appendChild(c4);
+                   c4.style.width="100%";
+                   c4.style.height="20%";
+                   c4.innerHTML="Sample coupon #4";
+                   c4.style.backgroundColor="white";
+                   c4.style.lineHeight="55px";
+                   c4.style.borderStyle="solid";
+                   c4.style.borderWidth="1px";
+                   var c5=document.createElement('Div');
+                   image.appendChild(c5);
+                   c5.style.width="100%";
+                   c5.style.height="20%";
+                   c5.innerHTML="Sample coupon #5";
+                   c5.style.backgroundColor="white";
+                   c5.style.lineHeight="55px";
+                   c5.style.borderStyle="solid";
+                   c5.style.borderWidth="1px";
+                   var start=document.createElement("button");
+                   start.innerHTML="Start again";
+                   start.style.position="absolute";
+                   start.style.marginLeft="23%";
+                   start.style.marginTop="3%";
+                   instruction.appendChild(start);
+                   start.onclick=function(){
+                       count=0;
+                       next.innerHTML="Next";
+                       next.disabled=false;
+                       image.innerHTML="Image";
+                       image.style.backgroundColor="aquamarine";
+                       instruction.innerHTML="";
+                       var title=document.createElement("h2");
+                       instruction.appendChild(title);
+                       title.className="title";
+                       title.innerHTML="What is Coupons on the go?";
+                       var description=document.createElement("div");
+                       instruction.appendChild(description);
+                       description.className="descDiv";
+                       description.innerHTML="Our service, Coupons on the Go!, is dedicated to letting you know the best deals available on a daily basis. Simply sign up for an account, fill out a preference form so we know what your interests are, download and log in to our mobile app to get notified of the lastest hot deals. Purchase our highly stylish, customizable wearable so you can send and store coupons in it for convenient access at the check-out.";
+                       start.style.display="none";
+                   }
+                   c1.onclick=function(){
+                       image.innerHTML="Sample coupon interface";
+                   }
+
+               }
+               
+               
+           }
+       </script>
+    </body>
+    
+</html>
